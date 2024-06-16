@@ -1,15 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
 :root {
   --text: #eae7f9;
   --background: #07040b;
+  --background2: #181024;
   --primary: #a993e1;
   --secondary: #7d5421;
   --accent: #aaca3f;
 }
 
-*{
-    margin:0;
-    padding:0;
-    font-family: "Pixelify Sans", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Pixelify Sans", sans-serif;
+  color: var(--text);
+}
+
+body {
+  height: 100vh;
+  background-color: var(--background);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 50px;
+  overflow: hidden;
+}
+.tela {
+  width: 60%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35vh;
+}
+header {
+  background-color: var(--background2);
+}
+.jogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: red;
+}
+
+.opcoes {
+  width: 50%;
+  min-height: 50px;
+  border-radius: 10px;
+  background-color: var(--background2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  border-top: 3px solid var(--accent);
 }
