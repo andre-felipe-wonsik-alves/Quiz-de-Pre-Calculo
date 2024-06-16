@@ -10,21 +10,24 @@
 
 <body>
     <div class="tela">
+        <span class="decor">?</span>
         <h1>Quiz Matemático</h1>
-        <main class="jogo">
+        <form class="jogo" id="form">
             <div class="inimigo">
                 <img src="../styles/inimigos/orc.png" alt="">
-                <h2>1+1 = ?</h2>
+                <h2 id="conta">1 + 1 = ?</h2>
             </div>
             <div class="opcoes">
                 <button class="opcao">1</button>
                 <button class="opcao">2</button>
                 <button class="opcao">4</button>
             </div>
-        </main>
+        </form>
         <footer>
             <p>@André, Eber e Erick</p>
         </footer>
+
+        <script src="../controllers/handleResposta.js"></script>
     </div>
 </body>
 
