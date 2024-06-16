@@ -3,8 +3,7 @@
 :root {
   --text: #eae7f9;
   --background: #07040b;
-  --background2: #181024;
-  --primary: #a993e1;
+  --primary: #181024;
   --secondary: #7d5421;
   --accent: #aaca3f;
 }
@@ -36,7 +35,7 @@ body {
   gap: 35vh;
 }
 header {
-  background-color: var(--background2);
+  background-color: var(--primary);
 }
 .jogo {
   display: flex;
@@ -44,17 +43,36 @@ header {
   align-items: center;
   width: 100%;
   background-color: red;
+
+  row-gap: 30px;
 }
 
 .opcoes {
-  width: 50%;
-  min-height: 50px;
+  width: 70%;
+  min-height: 100px;
   border-radius: 10px;
-  background-color: var(--background2);
+  background-color: var(--primary);
+  column-gap: 20px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.opcao {
+  background-color: var(--accent);
+  color: var(--primary);
+  width: 10%;
+  height: 50px;
+  border: none;
+  font-size: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.opcao:hover {
+  transition: 0.1s;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 footer {
