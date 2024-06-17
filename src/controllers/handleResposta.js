@@ -18,19 +18,27 @@ function checarResposta(button) {
   errou();
 }
 
+// -------------------------- SIGMA
 function novaQuestao() {
   //exibir nova pergunta, atualizar as opcoes e diminuir a vida do mosntro (?)
   hp_atual -= 5;
   document.getElementById("hp_monstro").innerHTML = "VIDA: "+ hp_atual+"/"+hp_total;
 }
 
+// -------------------------- ANDREZAO
 function errou(){
   //diminuiu uma vida
-  novaQuestao();
+  // novaQuestao();
+}
+
+// -------------------------- ANDREZAO
+function vidaMonstro(){
+
 }
 
 //coloca as opções nos botões
 //futuramente colocar dinamicamente a pergunta para não ser sempre a mesma
+// -------------------------- CLEBER
 function init() {
   document.getElementById("conta").innerHTML = arrPerguntas[2];
 
