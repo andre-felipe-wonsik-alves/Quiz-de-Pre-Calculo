@@ -1,10 +1,13 @@
 let options = [2, 3, 1]
 let resposta = 2
 
+const arrPerguntas = ["1+1", "2^3", "2/2"];
+const arrRespostas = [2, 8, 1];
+
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const conta = document.querySelector("#conta").textContent;
 
+  
 });
 
 // recebe o index vindo do botão (0, 1 ou 2) que seria correspondente ao index da opção no array
@@ -15,6 +18,7 @@ function checarResposta(button){
     novaQuestao();
   }
 }
+
 
 function novaQuestao(){
   //exibir nova pergunta, atualizar as opcoes e diminuir a vida do mosntro (?) 

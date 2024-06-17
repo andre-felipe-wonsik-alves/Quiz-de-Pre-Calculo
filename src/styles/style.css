@@ -109,13 +109,3 @@ img{
 .inimigo > h2{
   font-size: 45px;
 }
-
-.decor{
-  position: absolute;
-  bottom: 100px;
-  left: 100px;
-
-  transform: rotate(25deg);
-  font-size: 100px;
-  color: var(--accent);
-}
