@@ -42,6 +42,7 @@ footer {
 img{
   aspect-ratio: 1;
   width: 60%;
+  animation: 5s infinite idleAnimation;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -108,4 +109,16 @@ img{
 }
 .inimigo > h2{
   font-size: 45px;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+
+@keyframes idleAnimation {
+  25%{
+    transform: rotate(5deg);
+  }
+  50%{
+    transform: rotate(-10deg);
+  }
+  
 }
