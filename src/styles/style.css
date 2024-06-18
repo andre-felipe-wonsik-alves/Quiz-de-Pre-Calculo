@@ -111,6 +111,16 @@ img{
   font-size: 45px;
 }
 
+.hpPlayer{
+  position: absolute;
+  left: 100px;
+  color: 
+  var(--text);
+}
+.hpMonstro{
+  color: var(--accent);
+}
+
 /* --------------------------------------------------------------------------------------------- */
 
 @keyframes idleAnimation {
