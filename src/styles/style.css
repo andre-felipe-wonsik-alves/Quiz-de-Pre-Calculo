@@ -39,7 +39,7 @@ footer {
   align-items: center;
 }
 
-img{
+img {
   aspect-ratio: 1;
   width: 60%;
   animation: 5s infinite idleAnimation;
@@ -55,13 +55,12 @@ img{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
 }
 .jogo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between  ;
+  justify-content: space-between;
   width: 100%;
   height: 70vh;
 
@@ -84,11 +83,13 @@ img{
   background-color: var(--accent);
   color: var(--primary);
   width: 10%;
-  height: 50px;
   border: none;
   font-size: 30px;
   border-radius: 10px;
   cursor: pointer;
+
+  font-family: "Pixeled";
+  font-size: 20px;
 }
 .opcao:hover {
   transition: 0.1s;
@@ -96,7 +97,7 @@ img{
   color: var(--text);
 }
 
-.inimigo{
+.inimigo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,28 +108,51 @@ img{
   border-radius: 10px;
   border: 1px solid var(--accent);
 }
-.inimigo > h2{
+.inimigo > h2 {
   font-size: 45px;
 }
+.containerHp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  animation: 5s infinite reverse idleAnimation;
 
-.hpPlayer{
-  position: absolute;
-  left: 100px;
-  color: 
-  var(--text);
+  background-color: var(--primary);
+  box-shadow: 5px 5px 0px 1px var(--text);
+
+  position: fixed;
+  top: 300px;
+  right: 1100px;
+
+  width: 100px;
+  aspect-ratio: 1;
 }
-.hpMonstro{
+
+.hpPlayer {
+  
+  color: rgb(206, 26, 26);
+}
+.hpMonstro {
   color: var(--accent);
+}
+#conta{
+  font-family: "Pixeled";
+  font-size: 20px;
 }
 
 /* --------------------------------------------------------------------------------------------- */
 
 @keyframes idleAnimation {
-  25%{
+  25% {
     transform: rotate(5deg);
   }
-  50%{
+  50% {
     transform: rotate(-10deg);
   }
-  
+}
+
+@font-face {
+  font-family: "Pixeled";
+  src: url("../styles/Pixeled.ttf");
 }
