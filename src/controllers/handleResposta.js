@@ -61,7 +61,7 @@ function checarResposta(button) {
 }
 
 function novaQuestao() {
-  hitMonstro(); //aqui pode acabar dando hit no monstro mesmo errando a questão         --- Pelo jeito não da dano errando não! -erickão
+  hitMonstro();
 
   indexAleatorio = Math.floor(Math.random() * arrPerguntas.length);
   document.getElementById("conta").innerHTML =
@@ -142,7 +142,6 @@ function init() {
 
   //escolhe aleatoriamente um dos botões pra ter a opção correta
   botao_correto = Math.floor(Math.random() * 3);
-  console.log(botao_correto);
 
   for (let i = 0; i < 3; i++) {
     let alterando = `botao${i.toString()}`;
