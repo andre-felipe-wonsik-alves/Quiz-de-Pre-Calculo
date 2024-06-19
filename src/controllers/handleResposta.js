@@ -59,13 +59,13 @@ function checarResposta(button) {
 
 // -------------------------- SIGMA
 function novaQuestao() {
-  hitMonstro(); //aqui pode acabar dando hit no monstro mesmo errando a questão
+  hitMonstro(); //aqui pode acabar dando hit no monstro mesmo errando a questão         --- Pelo jeito não da dano errando não! -erickão
   //da um hit no monstro e dps chama
 
   indexAleatorio = Math.floor(Math.random() * arrPerguntas.length);
   document.getElementById("conta").innerHTML = arrPerguntas[indexAleatorio] + " ?"; //aqui troca a pergunta
 
-  //escolhe aleatoriamente um dos botões pra ter a opção correta
+  //aqui só repeti oq o ener fez no init mas com os novos valores gerados na novaQuestao
   botao_correto2 = Math.floor(Math.random() * 3);
   console.log(botao_correto2);
 
@@ -79,7 +79,6 @@ function novaQuestao() {
 
     }
     //se não for: a resposta sofre alguma alteração
-    //aqui eu só coloquei um +1 pra diferenciar, tem que arrumar depois
     else {
       document.getElementById(alterando2).innerHTML = arrRespostasErradas[indexAleatorio];
     }
@@ -135,9 +134,8 @@ function init() {
 
     }
     //se não for: a resposta sofre alguma alteração
-    //aqui eu só coloquei um +1 pra diferenciar, tem que arrumar depois
     else {
-      document.getElementById(alterando).innerHTML = arrRespostasErradas[selected_index];
+      document.getElementById(alterando).innerHTML = arrRespostasErradas[selected_index]; //botei umas respostas erradas aqui tropa
     }
   }
 
