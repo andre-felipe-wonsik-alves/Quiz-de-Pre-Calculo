@@ -41,8 +41,6 @@ const hpPlayer = 3;
 let hitsPlayer = 1;
 let hitsMonstro = 1;
 
-let selected_index = 0;
-
 // SCORE
 let score = 0;
 
@@ -67,23 +65,7 @@ function novaQuestao() {
   document.getElementById("conta").innerHTML =
     arrPerguntas[indexAleatorio] + " ?"; //aqui troca a pergunta
 
-  //aqui só repeti oq o ener fez no init mas com os novos valores gerados na novaQuestao
-  botao_correto2 = Math.floor(Math.random() * 3);
-
-  for (let i = 0; i < 3; i++) {
-    let alterando2 = `botao${i.toString()}`;
-
-    //se i = o botao selecionado esse botão recebe a resposta correta
-    if (i == botao_correto2) {
-      document.getElementById(alterando2).innerHTML =
-        arrRespostas[indexAleatorio];
-    }
-    //se não for: a resposta sofre alguma alteração
-    else {
-      document.getElementById(alterando2).innerHTML =
-        arrRespostasErradas[indexAleatorio];
-    }
-  }
+  loadBotoes(indexAleatorio);
 }
 
 function hitPlayer() {
@@ -107,6 +89,7 @@ function hitMonstro() {
     document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
 
     score += 100;
+    document.querySelector("#pontuacao").innerHTML = `PONTOS: ${score}`;
   } else {
     document.querySelector("#hp_monstro").innerHTML = "❤".repeat(
       hpMonstro - hitsMonstro
@@ -129,16 +112,10 @@ function derrota() {
   });
 }
 
-function init() {
-  //escolhe aleatoriamente algum index pra pergunta e resposta (só troquei o 3 para algo dinamico - andrezao)
-  selected_index = Math.floor(Math.random() * arrPerguntas.length);
-
-  document.getElementById("conta").innerHTML =
-    arrPerguntas[selected_index] + " ?"; //botei um ? - erickão
-
-  // Vidas
-  document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
-  document.querySelector("#hp_player").innerHTML = "❤".repeat(hpPlayer);
+//essa função vai fazer o trabalho de colocar o texto nos botões pra não repetir código no init e novaQuestao
+function loadBotoes(index_selecionado){
+  let last_index = Math.floor(Math.random() * arrRespostasErradas.length);
+  let new_index = 0;
 
   //escolhe aleatoriamente um dos botões pra ter a opção correta
   botao_correto = Math.floor(Math.random() * 3);
@@ -149,12 +126,34 @@ function init() {
     //se i = o botao selecionado esse botão recebe a resposta correta
     if (i == botao_correto) {
       document.getElementById(alterando).innerHTML =
-        arrRespostas[selected_index];
+        arrRespostas[index_selecionado];
     }
     //se não for: a resposta sofre alguma alteração
     else {
+      new_index = Math.floor(Math.random() * arrRespostasErradas.length);
+      if (new_index == last_index) {
+        while (new_index == last_index){
+          new_index = Math.floor(Math.random() * arrRespostasErradas.length);
+        }
+      }
       document.getElementById(alterando).innerHTML =
-        arrRespostasErradas[selected_index]; //botei umas respostas erradas aqui tropa
+        arrRespostasErradas[Math.floor(Math.random() * arrRespostasErradas.length)];
     }
   }
+}
+
+function init() {
+  //escolhe aleatoriamente algum index pra pergunta e resposta (só troquei o 3 para algo dinamico - andrezao)
+  let selected_index = Math.floor(Math.random() * arrPerguntas.length);
+
+  document.getElementById("conta").innerHTML =
+    arrPerguntas[selected_index] + " ?"; //botei um ? - erickão
+
+  document.querySelector("#pontuacao").innerHTML = `PONTOS: ${score}`;
+
+  // Vidas
+  document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
+  document.querySelector("#hp_player").innerHTML = "❤".repeat(hpPlayer);
+
+  loadBotoes(selected_index);
 }

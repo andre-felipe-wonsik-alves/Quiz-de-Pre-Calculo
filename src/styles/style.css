@@ -173,6 +173,29 @@ img {
   border-radius: 10px;
   cursor: pointer;
 }
+
+.containerPontuacao {
+  position: fixed;
+  top: 300px;
+  right: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+  width: min-content + 10px;
+  height:40px;
+  background-color: var(--primary);
+  box-shadow: 5px 5px 0px 1px var(--text);
+
+  padding: 10px;
+}
+
+#pontuacao{
+  font-family: "Pixeled";
+  font-size: 17px;
+}
 /* --------------------------------------------------------------------------------------------- */
 
 @keyframes idleAnimation {
