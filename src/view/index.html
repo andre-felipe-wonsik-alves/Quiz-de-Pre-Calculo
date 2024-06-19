@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="shortcut icon" href="../styles/player.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../styles/inimigos/orc3.png" type="image/x-icon">
     <title>Quiz matemático</title>
 </head>
 
 <body onload="init()">
-    <div class="tela">  
+    <div id="derrota">
+        <h1>Você perdeu!</h1>
+        <p id="score">100000</p>
+        <button id="recarregar">Tentar de novo!</button>
+    </div>
+    <div class="tela">
         <h1>Quiz Matemático</h1>
         <div class="containerHp">
             <h2 id="hp_player" class="hpPlayer"></h2>
@@ -18,7 +23,7 @@
         <h2 id="hp_monstro" class="hpMonstro"></h2>
         <form class="jogo" id="form">
             <div class="inimigo">
-                <img src="../styles/inimigos/orc.png" alt="" id="imgMonstro">
+                <img src="../styles/inimigos/orc1.png" alt="" id="imgMonstro">
                 <h2 id="conta"></h2>
             </div>
             <div class="opcoes">

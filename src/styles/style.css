@@ -140,6 +140,39 @@ img {
   font-family: "Pixeled";
   font-size: 20px;
 }
+#derrota{
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 165px;
+  z-index: 1;
+
+  border-radius: 30px;
+  background-color: var(--primary);
+  border: 3px solid var(--background);
+  row-gap: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  visibility: hidden;
+}
+#derrota > h1{
+  font-size: 100px;
+  font-weight: bold;
+  color: var(--accent);
+}
+#derrota > button{
+  width: 50%;
+  height: 50px;
+  background-color: var(--accent);
+  color: var(--background);
+  border: 2px solid var(--background);
+  border-radius: 10px;
+  cursor: pointer;
+}
 /* --------------------------------------------------------------------------------------------- */
 
 @keyframes idleAnimation {

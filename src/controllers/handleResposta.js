@@ -32,11 +32,11 @@ const arrRespostas = [
 ];
 
 const arrRespostasErradas = [
-  1, 11, 0, 13, 14, 15, 22, 18, 23, 20, 26, 40, 19, -7, 27, 30, 28, 31, 44, 62, 100, 200, 50,
-  55, 69,
+  1, 11, 0, 13, 14, 15, 22, 18, 23, 20, 26, 40, 19, -7, 27, 30, 28, 31, 44, 62,
+  100, 200, 50, 55, 69,
 ];
 
-const hpMonstro = Math.floor(Math.random() * (7 - 3 + 1)) + 5; //vida aleatória
+const hpMonstro = Math.floor(Math.random() * (3 - 3 + 1)) + 3; //vida aleatória
 const hpPlayer = 3;
 let hitsPlayer = 1;
 let hitsMonstro = 1;
@@ -53,17 +53,16 @@ function checarResposta(button) {
   index = arrRespostas.indexOf(
     parseInt(document.querySelector(`#${button}`).textContent)
   );
-  if (index != -1) return novaQuestao(); //se o index não for -1 (existe no arrResposta) --> chama novaQuestao() 
+  if (index != -1) return novaQuestao(); //se o index não for -1 (existe no arrResposta) --> chama novaQuestao()
   hitPlayer();
 }
 
-// -------------------------- SIGMA
 function novaQuestao() {
   hitMonstro(); //aqui pode acabar dando hit no monstro mesmo errando a questão         --- Pelo jeito não da dano errando não! -erickão
-  //da um hit no monstro e dps chama
 
   indexAleatorio = Math.floor(Math.random() * arrPerguntas.length);
-  document.getElementById("conta").innerHTML = arrPerguntas[indexAleatorio] + " ?"; //aqui troca a pergunta
+  document.getElementById("conta").innerHTML =
+    arrPerguntas[indexAleatorio] + " ?"; //aqui troca a pergunta
 
   //aqui só repeti oq o ener fez no init mas com os novos valores gerados na novaQuestao
   botao_correto2 = Math.floor(Math.random() * 3);
@@ -76,18 +75,17 @@ function novaQuestao() {
     if (i == botao_correto2) {
       document.getElementById(alterando2).innerHTML =
         arrRespostas[indexAleatorio];
-
     }
     //se não for: a resposta sofre alguma alteração
     else {
-      document.getElementById(alterando2).innerHTML = arrRespostasErradas[indexAleatorio];
+      document.getElementById(alterando2).innerHTML =
+        arrRespostasErradas[indexAleatorio];
     }
   }
-
 }
 
 function hitPlayer() {
-  if (hitsPlayer >= hpPlayer) return false;
+  if (hitsPlayer >= hpPlayer) return derrota();
 
   document.querySelector("#hp_player").innerHTML = "❤".repeat(
     hpPlayer - hitsPlayer
@@ -96,25 +94,40 @@ function hitPlayer() {
 }
 
 function hitMonstro() {
+  console.log(hitsMonstro, hpMonstro);
   if (hitsMonstro >= hpMonstro) {
-    document.querySelector("#imgMonstro").src = "../styles/inimigos/orc2.png";
+    hitsMonstro = 0;
+    let monstroAleatorio = Math.floor(Math.random() * (3 - 3 + 1)) + 3;
+    document.querySelector(
+      "#imgMonstro"
+    ).src = `../styles/inimigos/orc${monstroAleatorio}.png`;
     document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
-  } //TROCAR O MONSTRO
-
-  document.querySelector("#hp_monstro").innerHTML = "❤".repeat(
-    hpMonstro - hitsMonstro
-  );
+  } else {
+    document.querySelector("#hp_monstro").innerHTML = "❤".repeat(
+      hpMonstro - hitsMonstro
+    );
+  }
   hitsMonstro++;
+  return;
 }
 
-//coloca as opções nos botões
-//futuramente colocar dinamicamente a pergunta para não ser sempre a mesma
-// -------------------------- CLEBER
+function derrota() {
+  const divDerrota = document.querySelector("#derrota");
+  const recarregar = document.querySelector("#recarregar");
+
+  divDerrota.style.visibility = "visible";
+
+  recarregar.addEventListener("click", (e) => {
+    window.location.reload(true)
+  });
+}
+
 function init() {
   //escolhe aleatoriamente algum index pra pergunta e resposta (só troquei o 3 para algo dinamico - andrezao)
   selected_index = Math.floor(Math.random() * arrPerguntas.length);
 
-  document.getElementById("conta").innerHTML = arrPerguntas[selected_index] + " ?"; //botei um ? - erickão
+  document.getElementById("conta").innerHTML =
+    arrPerguntas[selected_index] + " ?"; //botei um ? - erickão
 
   // Vidas
   document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
@@ -131,12 +144,11 @@ function init() {
     if (i == botao_correto) {
       document.getElementById(alterando).innerHTML =
         arrRespostas[selected_index];
-
     }
     //se não for: a resposta sofre alguma alteração
     else {
-      document.getElementById(alterando).innerHTML = arrRespostasErradas[selected_index]; //botei umas respostas erradas aqui tropa
+      document.getElementById(alterando).innerHTML =
+        arrRespostasErradas[selected_index]; //botei umas respostas erradas aqui tropa
     }
   }
-
 }
