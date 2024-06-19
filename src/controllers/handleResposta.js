@@ -66,7 +66,6 @@ function novaQuestao() {
 
   //aqui só repeti oq o ener fez no init mas com os novos valores gerados na novaQuestao
   botao_correto2 = Math.floor(Math.random() * 3);
-  console.log(botao_correto2);
 
   for (let i = 0; i < 3; i++) {
     let alterando2 = `botao${i.toString()}`;
@@ -94,10 +93,11 @@ function hitPlayer() {
 }
 
 function hitMonstro() {
-  console.log(hitsMonstro, hpMonstro);
   if (hitsMonstro >= hpMonstro) {
     hitsMonstro = 0;
-    let monstroAleatorio = Math.floor(Math.random() * (3 - 3 + 1)) + 3;
+
+    let monstroAleatorio = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    console.log(monstroAleatorio)
     document.querySelector(
       "#imgMonstro"
     ).src = `../styles/inimigos/orc${monstroAleatorio}.png`;
