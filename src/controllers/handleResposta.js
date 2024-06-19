@@ -36,12 +36,15 @@ const arrRespostasErradas = [
   100, 200, 50, 55, 69,
 ];
 
-const hpMonstro = Math.floor(Math.random() * (3 - 3 + 1)) + 3; //vida aleatória
+const hpMonstro = Math.floor(Math.random() * (5 - 3 + 1)) + 3; //vida aleatória
 const hpPlayer = 3;
 let hitsPlayer = 1;
 let hitsMonstro = 1;
 
 let selected_index = 0;
+
+// SCORE
+let score = 0;
 
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -102,6 +105,8 @@ function hitMonstro() {
       "#imgMonstro"
     ).src = `../styles/inimigos/orc${monstroAleatorio}.png`;
     document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
+
+    score += 100;
   } else {
     document.querySelector("#hp_monstro").innerHTML = "❤".repeat(
       hpMonstro - hitsMonstro
@@ -114,8 +119,10 @@ function hitMonstro() {
 function derrota() {
   const divDerrota = document.querySelector("#derrota");
   const recarregar = document.querySelector("#recarregar");
+  const scoreFinal = document.querySelector("#score");
 
   divDerrota.style.visibility = "visible";
+  scoreFinal.innerHTML += score;
 
   recarregar.addEventListener("click", (e) => {
     window.location.reload(true)
