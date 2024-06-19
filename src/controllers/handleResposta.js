@@ -99,7 +99,7 @@ function hitMonstro() {
   if (hitsMonstro >= hpMonstro) {
     hitsMonstro = 0;
 
-    let monstroAleatorio = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    let monstroAleatorio = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
     console.log(monstroAleatorio)
     document.querySelector(
       "#imgMonstro"
