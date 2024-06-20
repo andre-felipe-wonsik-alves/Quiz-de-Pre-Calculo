@@ -105,7 +105,7 @@ function derrota() {
   const scoreFinal = document.querySelector("#score");
 
   divDerrota.style.visibility = "visible";
-  scoreFinal.innerHTML += score;
+  scoreFinal.innerHTML += "Pontuação: " + score;
 
   recarregar.addEventListener("click", (e) => {
     window.location.reload(true)
