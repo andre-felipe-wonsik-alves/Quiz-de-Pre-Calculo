@@ -59,7 +59,7 @@ function checarResposta(button) {
 }
 
 function novaQuestao() {
-  hitMonstro(); //aqui pode acabar dando hit no monstro mesmo errando a questão         --- Pelo jeito não da dano errando não! -erickão
+  hitMonstro();
 
   indexAleatorio = Math.floor(Math.random() * arrPerguntas.length);
   document.getElementById("conta").innerHTML =
@@ -81,7 +81,7 @@ function hitMonstro() {
   if (hitsMonstro >= hpMonstro) {
     hitsMonstro = 0;
 
-    let monstroAleatorio = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    let monstroAleatorio = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
     console.log(monstroAleatorio)
     document.querySelector(
       "#imgMonstro"
@@ -105,7 +105,7 @@ function derrota() {
   const scoreFinal = document.querySelector("#score");
 
   divDerrota.style.visibility = "visible";
-  scoreFinal.innerHTML += score;
+  scoreFinal.innerHTML += "Pontuação: " + score;
 
   recarregar.addEventListener("click", (e) => {
     window.location.reload(true)

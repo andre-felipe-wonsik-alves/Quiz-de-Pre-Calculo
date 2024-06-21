@@ -106,7 +106,7 @@ img {
   background-color: var(--primary);
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid var(--accent);
+  border: 3px solid var(--accent);
 }
 .inimigo > h2 {
   font-size: 45px;
@@ -143,8 +143,7 @@ img {
 #derrota{
   position: absolute;
   width: 70%;
-  height: 70%;
-  top: 165px;
+  height: 100%;
   z-index: 1;
 
   border-radius: 30px;
@@ -162,16 +161,24 @@ img {
 #derrota > h1{
   font-size: 100px;
   font-weight: bold;
-  color: var(--accent);
+  color: var(--text);
 }
 #derrota > button{
   width: 50%;
   height: 50px;
   background-color: var(--accent);
-  color: var(--background);
   border: 2px solid var(--background);
   border-radius: 10px;
   cursor: pointer;
+  
+  color: var(--background);
+  font-size: 30px;
+  
+}
+#derrota > img {
+  width: 20%;
+  aspect-ratio: 1;
+  animation: none;
 }
 
 .containerPontuacao {
@@ -195,6 +202,11 @@ img {
 #pontuacao{
   font-family: "Pixeled";
   font-size: 17px;
+}
+
+#score{
+  font-size:40px;
+  color: var(--accent);
 }
 /* --------------------------------------------------------------------------------------------- */
 
