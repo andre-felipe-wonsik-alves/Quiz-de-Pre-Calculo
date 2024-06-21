@@ -142,6 +142,7 @@ function loadBotoes(index_selecionado){
   }
 }
 
+//roda ao carregar o <body>
 function init() {
   //escolhe aleatoriamente algum index pra pergunta e resposta (só troquei o 3 para algo dinamico - andrezao)
   let selected_index = Math.floor(Math.random() * arrPerguntas.length);
