@@ -168,14 +168,17 @@ function init() {
   //escolhe aleatoriamente algum index pra pergunta e resposta (só troquei o 3 para algo dinamico - andrezao)
   let selected_index = Math.floor(Math.random() * arrPerguntas.length);
 
+  //escreve a pergunta
   document.getElementById("conta").innerHTML =
     arrPerguntas[selected_index] + " ?"; //botei um ? - erickão
 
+  //carrega a pontuação
   document.querySelector("#pontuacao").innerHTML = `PONTOS: ${score}`;
 
   // Vidas
   document.querySelector("#hp_monstro").innerHTML = "❤".repeat(hpMonstro);
   document.querySelector("#hp_player").innerHTML = "❤".repeat(hpPlayer);
 
+  //carrega as respostas nos botões
   loadBotoes(selected_index);
 }
